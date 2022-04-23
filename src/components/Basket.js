@@ -11,11 +11,15 @@ export default function Basket(props){
             {cartItems.length === 0 && <div> Cart Is Empty </div>}
             {cartItems.map((item)=> (
                     <div key = {item.id} className = "row">
-                        <div>{item.name}</div>
-                        <div>
+                        <div className="col-2">{item.name}</div>
+                        <div className="col-2">
                             <button onClick = {()=>onAdd(item)} className="add">+</button>
                             <button onClick = {()=>onRemove(item)} className="remove">-</button>
                         </div>
+                        <div className="col-2 text-right">
+
+                            {item.qty} x $ {item.price.toFixed(2)}
+                            </div>
                     </div>
             ))}
         </div>
